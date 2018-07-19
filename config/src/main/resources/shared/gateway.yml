@@ -1,0 +1,30 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+
+
+zuul:
+  routes:
+    setup-service:
+        path: /setup/**
+        url: http://127.0.0.1:5000
+        serviceId: setup-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+    object-service:
+        path: /object/**
+        url: http://127.0.0.1:6000
+        serviceId: object-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+
+
+server:
+  port: 4000

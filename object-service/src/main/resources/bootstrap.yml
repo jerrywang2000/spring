@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: object-service
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      fail-fast: true
+      password: ${CONFIG_SERVICE_PASSWORD}
+      username: user
+
+feign:
+  hystrix:
+    enabled: true
