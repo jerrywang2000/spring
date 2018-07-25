@@ -9,6 +9,8 @@ spring:
   security:
     user:
       password: ${CONFIG_SERVICE_PASSWORD}
+  rabbitmq:
+    host: slc15din.us.oracle.com
       
 server:
   port: 8888
