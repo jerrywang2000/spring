@@ -21,7 +21,7 @@
     <mappers>
         <mapper resource="mapper/CustomerMapper.xml"/>
         <mapper resource="mapper/VendorMapper.xml"/>
-        <mapper resource="mapper/RecordMapper.xml"/>
+        <mapper resource="mapper/LocationMapper.xml"/>
         <mapper resource="mapper/FieldMapper.xml"/>
         <mapper resource="mapper/RecordFieldMapper.xml"/>        
     </mappers>

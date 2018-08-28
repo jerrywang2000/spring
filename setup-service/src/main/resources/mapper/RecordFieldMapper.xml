@@ -451,4 +451,7 @@
     where RECORD_ID = #{recordId,jdbcType=VARCHAR}
       and FIELD_ID = #{fieldId,jdbcType=VARCHAR}
   </update>
+	<update id="createNewTable" parameterType="java.lang.String" >
+	    ${newTableSql}
+	</update>  
 </mapper>

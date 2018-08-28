@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: config
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: wfwang
+Implementation-Vendor-Id: com.tools
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/config
+Created-By: Maven Integration for Eclipse
+

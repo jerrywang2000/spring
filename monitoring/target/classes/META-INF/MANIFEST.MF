@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: monitoring
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: wfwang
+Implementation-Vendor-Id: com.tools
+Build-Jdk: 1.8.0_131
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

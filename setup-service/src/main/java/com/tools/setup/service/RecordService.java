@@ -3,6 +3,7 @@ package com.tools.setup.service;
 import java.util.List;
 
 import com.tools.setup.entity.Record;
+import com.tools.setup.entity.User;
 
 public interface RecordService {
 
@@ -16,5 +17,5 @@ public interface RecordService {
            
     int updateByPrimaryKey(Record record);
     
-    
+    String create(User user);
 }

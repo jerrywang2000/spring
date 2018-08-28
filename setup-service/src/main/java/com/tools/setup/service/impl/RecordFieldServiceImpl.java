@@ -52,12 +52,13 @@ public class RecordFieldServiceImpl implements RecordFieldService{
     
     public String deploy(String recordId) {
     	String sql = "";
+    	String dropTableSql = "";
     	String tableName = "";
     	String pkFields = "";
     	List<RecordField> fields = dao.selectByRecordId(recordId);
     	for (RecordField field : fields) {
     		if ("".equals(tableName)) {
-    			tableName = field.getRecordId();
+    			tableName = field.getRecordId();    			
     			sql = "CREATE TABLE "+tableName + "(\n";
     		}
     		sql += field.getFieldId()+ " " + field.getFieldType(); 
@@ -84,10 +85,13 @@ public class RecordFieldServiceImpl implements RecordFieldService{
     	   
     	sql += "PRIMARY KEY ("+pkFields+")\n";
     	sql += ")ENGINE=InnoDB DEFAULT CHARSET=utf8;\n";
-    	
+    	System.out.println(sql);
+    	dropTableSql = "DROP TABLE IF EXISTS "+tableName + ";\n";
+    	dao.createNewTable(dropTableSql);
+    	dao.createNewTable(sql);
     	LinkedHashMap<String, String> payload = new LinkedHashMap<String, String>();
-		payload.put("sql", sql);
-    	
+		payload.put("sql", sql);   
+		payload.put("recordId", recordId);
     	return objectService.deployRecord(payload);
     }
     

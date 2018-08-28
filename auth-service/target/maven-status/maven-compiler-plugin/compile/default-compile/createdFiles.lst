@@ -1,0 +1,8 @@
+com\tools\auth\controller\UserController.class
+com\tools\auth\domain\User.class
+com\tools\auth\repository\RedisObjectSerializer.class
+com\tools\auth\service\UserService.class
+com\tools\auth\repository\RedisConfig.class
+com\tools\auth\service\UserServiceImpl.class
+com\tools\auth\service\security\RedisUserDetailsService.class
+com\tools\auth\AuthApplication.class

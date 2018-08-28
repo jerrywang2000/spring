@@ -4,7 +4,6 @@ services:
     image: rabbitmq:3-management
     restart: always
     ports:
-      - 5672:5672
       - 15672:15672
     logging:
       options:
@@ -45,7 +44,7 @@ services:
       config:
         condition: service_healthy
     ports:
-      - 80:80
+      - 80:4000
     logging:
       options:
         max-size: "10m"

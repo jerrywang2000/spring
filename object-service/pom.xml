@@ -39,6 +39,15 @@
 	
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+			
+		<dependency>
 	        <groupId>org.springframework.cloud</groupId>
 	        <artifactId>spring-cloud-starter-config</artifactId>
 	    </dependency>
@@ -47,7 +56,11 @@
 	        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 	    </dependency>
 
-
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-aop</artifactId>  
+        </dependency>
+        
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -108,10 +121,58 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
+        
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+	        
 	</dependencies>
 
 	<build>
 		<plugins>
+		
+		    <plugin>
+		     <groupId>org.apache.maven.plugins</groupId>
+		     <artifactId>maven-jar-plugin</artifactId>
+		     <executions>
+          <execution>
+		     <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+		     <configuration>
+		       <classifier>interface</classifier>
+		       <finalName>event</finalName>
+		       <includes>
+		         <include>**/event/*</include>
+		       </includes>
+		     </configuration>
+		     </execution>
+        </executions>
+		    </plugin>	
+		    <!--
+			<plugin>
+			    <groupId>com.jolira</groupId>
+			    <artifactId>onejar-maven-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <configuration>
+			                <mainClass>org.baeldung.executable.
+			                  ExecutableMavenJar</mainClass>
+			                <attachToBuild>true</attachToBuild>
+			                <filename>
+			                  ${project.build.finalName}.${project.packaging}
+			                </filename>
+			            </configuration>
+			            <goals>
+			                <goal>one-jar</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
+			-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -155,7 +216,25 @@
 					</dependency>					 
 				</dependencies>				
 			</plugin>
-
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/groovy</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+             </plugin>
 		</plugins>
 	</build>
 </project>

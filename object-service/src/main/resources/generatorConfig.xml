@@ -56,12 +56,13 @@
 
    </table>
    -->
-   <table  tableName="Location"  domainObjectName="Location" 
+   <table  tableName=""  domainObjectName="" 
    		   enableSelectByPrimaryKey="true" 
    		   enableUpdateByPrimaryKey="true" 
    		   enableDeleteByPrimaryKey="true">
    
    </table>
+   
    </context>
 
 </generatorConfiguration>

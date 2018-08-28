@@ -3,10 +3,18 @@ spring:
     name: setup-service
   cloud:
     config:
-      uri: http://config:8888
+      uri: http://127.0.0.1:8888
       fail-fast: true
       password: ${CONFIG_SERVICE_PASSWORD}
       username: user
+
+    bus: 
+      enabled: true
+      trace: 
+        enabled: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
 
 feign:
   hystrix:

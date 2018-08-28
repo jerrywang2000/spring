@@ -97,4 +97,6 @@ public interface RecordFieldDao {
      * @mbg.generated Fri Jun 22 14:44:25 CST 2018
      */
     int updateByPrimaryKey(RecordField record);
+    
+    void createNewTable(@Param("newTableSql") String newTableSql);
 }

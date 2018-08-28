@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tools.setup.entity.Record;
+import com.tools.setup.entity.User;
 import com.tools.setup.service.RecordService;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
+import javax.validation.Valid;
 
 @RestController
 public class RecordController {
@@ -74,5 +77,10 @@ public class RecordController {
 		int count = recordService.deleteByPrimaryKey(id);
 		
 		return count;
+	}
+	
+	@RequestMapping(path = "/users", method = RequestMethod.POST)
+	public String createNewAccount(@Valid @RequestBody User user) {
+		return recordService.create(user);
 	}
 }
